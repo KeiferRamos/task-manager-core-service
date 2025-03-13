@@ -11,8 +11,9 @@ import { ConfigModule } from '@nestjs/config';
   imports: [
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
-      playground: false,
+      autoSchemaFile: true,
+      sortSchema: true,
+      introspection: true,
     }),
     ConfigModule.forRoot({
       isGlobal: true,
